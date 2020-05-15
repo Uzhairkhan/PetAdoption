@@ -1,4 +1,6 @@
 const express = require("express");
+const bodyParser = require("body-parser");
+const app = express();
 const port = process.env.PORT || 3786;
 const mongoose = require("./config/Database");
 
@@ -7,9 +9,9 @@ const users = require("./config/apis/users").router;
 const pets = require("./config/apis/pets").router;
 const category = require("./config/apis/category").router;
 
-const app = express();
-
-// app.use(express.json());
+//body-parser middlewares
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use("/users", users);
 app.use("/pets", pets);

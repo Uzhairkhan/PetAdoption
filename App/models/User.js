@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema();
+const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   firstName: {
@@ -32,12 +32,12 @@ const userSchema = new Schema({
     minLength: 8,
     maxLength: 128,
   },
-  confirmPassword: {
-    type: String,
-    required: true,
-    minLength: 8,
-    maxlength: 128,
-  },
+  // confirmPassword: {
+  //   type: String,
+  //   required: true,
+  //   minLength: 8,
+  //   maxlength: 128,
+  // },
   createdAt: {
     type: Date,
     default: Date.now(),
