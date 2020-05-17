@@ -1,4 +1,9 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const key = require("../../config/keys");
+
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -13,6 +18,14 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
+    validate: {
+      validator: function (email) {
+        return validator.isEmail(email);
+      },
+      message: function () {
+        return "Invalid email format";
+      },
+    },
   },
   mobile: {
     type: String,
@@ -43,6 +56,44 @@ const userSchema = new Schema({
     default: Date.now(),
   },
 });
+
+//Static method
+userSchema.statics.findByCredentials = function (email, password) {
+  const User = this;
+
+  return User.findOne({ email })
+    .then((user) => {
+      if (!user) {
+        return Promise.reject("Invalid Email / Password");
+      }
+
+      return bcrypt
+        .compare(password, user.password)
+        .then((isMatch) => {
+          if (isMatch) {
+            return Promise.resolve(user);
+          } else {
+            return Promise.reject("Invalid Email / Password");
+          }
+        })
+        .catch((err) => Promise.reject(err));
+    })
+    .catch((err) => Promise.reject(err));
+};
+
+//find by token
+userSchema.statics.findByToken = function (token) {
+  const User = this;
+  let tokenData;
+
+  try {
+    tokenData = jwt.verify(token, key.secretOrKeys);
+  } catch (err) {
+    return Promise.reject(err);
+  }
+
+  return User.findOne({ _id: tokenData.id });
+};
 
 const User = mongoose.model("User", userSchema);
 module.exports = {

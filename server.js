@@ -9,7 +9,8 @@ const users = require("./config/apis/users").router;
 const pets = require("./config/apis/pets").router;
 const category = require("./config/apis/category").router;
 
-//body-parser middlewares
+// //body-parser middlewares
+// can also use express middleware express.json() for json data
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
