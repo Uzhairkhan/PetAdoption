@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+const cors = require("cors");
 const port = process.env.PORT || 3786;
 const mongoose = require("./config/Database");
 
@@ -8,6 +9,8 @@ const mongoose = require("./config/Database");
 const users = require("./config/apis/users").router;
 const pets = require("./config/apis/pets").router;
 const category = require("./config/apis/category").router;
+
+app.use(cors());
 
 // //body-parser middlewares
 // can also use express middleware express.json() for json data

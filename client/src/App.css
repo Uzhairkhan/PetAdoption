@@ -6,11 +6,20 @@
 }
 
 header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(./img/mana5280-bw05XNo-Ni0-unsplash.jpg);
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
+  background-color: #000000;
+  display: fixed;
+  position: relative;
+  height: 100px;
+  padding-top: 20px;
+  clear: both;
+}
+
+footer {
+  background-color: #000000;
+  position: relative;
+  height: 100px;
+  margin-top: -80px;
+  clear: both;
 }
 
 .nav {
@@ -44,4 +53,24 @@ header {
 .main {
   max-width: 1400px;
   margin: auto;
+}
+
+.Home {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./img/mana5280-bw05XNo-Ni0-unsplash.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.sym {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sym h4 {
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
 }
