@@ -1,8 +1,8 @@
-const Pets = require("../models/Pets");
+const Pet = require("../models/Pets");
 
 module.exports.list = (req, res) => {
   Pet.find()
-    .populate("animal_type breed", ["name"])
+    .populate("animal_type", ["name"])
     .then((pets) => res.json(pets))
     .catch((err) => res.send(err));
 };
@@ -18,7 +18,7 @@ module.exports.create = (req, res) => {
 module.exports.show = (req, res) => {
   const id = req.params.id;
   Pet.findOne({ _id: id })
-    .populate("animal_type breed", ["name"])
+    .populate("animal_type ", ["name"])
     .select("name age gender city res_place")
     .then((pet) => res.json(pet))
     .catch((err) => res.send(err));

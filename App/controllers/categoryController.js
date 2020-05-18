@@ -2,6 +2,7 @@ const Category = require("../models/Category");
 
 module.exports.list = (req, res) => {
   Category.find()
+    .select("name")
     .then((types) => {
       res.json(types);
     })
@@ -41,6 +42,7 @@ module.exports.update = (req, res) => {
   const body = req.body;
 
   Category.findOneAndUpdate({ _id: id }, body, { new: true })
+    .select("name")
     .then((type) => {
       res.json(type);
     })
@@ -53,6 +55,7 @@ module.exports.delete = (req, res) => {
   const id = req.params.id;
 
   Category.findOneAndDelete({ _id: id })
+    .select("name")
     .then((type) => {
       res.json(type);
     })
