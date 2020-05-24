@@ -1,76 +1,95 @@
 * {
   margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.6em;
 }
 
-header {
-  background-color: #000000;
-  display: fixed;
-  position: relative;
-  height: 100px;
-  padding-top: 20px;
-  clear: both;
+/* main Container CSS */
+.container {
+  width: 80%;
+  margin: auto;
+  padding-bottom: 10px;
+  overflow: hidden;
 }
 
-footer {
-  background-color: #000000;
-  position: relative;
-  height: 100px;
-  margin-top: -80px;
-  clear: both;
-}
-
-.nav {
-  float: right;
-  list-style-type: none;
-  margin-top: 25px;
-}
-.nav li {
-  display: inline-block;
-  padding-left: 3px;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: #ffffff;
+/* CSS for buttons/ applicable globally */
+.button {
+  background-color: mediumblue;
+  color: #fff;
   padding: 5px 15px;
-  transition: 0.6s ease-in-out;
+  border: none;
 }
 
-.nav-link:hover {
-  background-color: #ffffff;
-  color: #000000;
+/* CSS logo */
+.logo {
+  width: 30%;
+  margin-top: 10px;
+  float: left;
 }
 
 .logo img {
-  float: left;
-  width: 220px;
-  height: auto;
+  width: 65%;
 }
 
-.main {
-  max-width: 1400px;
+/* Header CSS */
+#main-header {
+  background-color: black;
+  color: aliceblue;
+}
+
+#main-nav {
+  width: 70%;
+  float: right;
+  margin-top: 50px;
+}
+
+#main-nav ul {
+  float: right;
+  list-style-type: none;
+  padding: 0;
+}
+
+#main-nav li {
+  display: inline-block;
+}
+
+.nav-links {
+  text-decoration: none;
+  color: aliceblue;
+  padding: 5px 20px;
+  /* font-size: 18px; */
+}
+
+.nav-links:hover {
+  text-decoration: none;
+  background-color: aliceblue;
+  color: black;
+  transition: 0.6s ease-in-out;
+}
+
+/* CSS of Form */
+.myForm {
   margin: auto;
+  width: 80%;
+  padding: 10px;
 }
 
-.Home {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(./img/mana5280-bw05XNo-Ni0-unsplash.jpg);
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
+.form-label {
+  text-align: center;
 }
 
-.sym {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* .myForm .form-group {
+  margin: auto;
+} */
+
+.myForm label {
+  display: block;
+  text-align: center;
 }
 
-.sym h4 {
-  color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
+/* displays the setting for particular feilds */
+.myForm input[type="text"],
+.myForm input[type="password"] {
+  padding: 5px;
+  width: 100%;
 }
